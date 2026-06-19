@@ -467,6 +467,151 @@ section {
   transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* === RANKINGS === */
+.rankings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.ranking-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px 32px;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.ranking-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--white), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.ranking-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-4px);
+}
+
+.ranking-card:hover::before {
+  opacity: 0.5;
+}
+
+.ranking-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.ranking-badge {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-bright);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ranking-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.ranking-subtitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ranking-list li:last-child {
+  border-bottom: none;
+}
+
+.ranking-position {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  min-width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ranking-position.gold { color: #FFD700; }
+.ranking-position.silver { color: #C0C0C0; }
+.ranking-position.bronze { color: #CD7F32; }
+
+.ranking-info {
+  flex: 1;
+}
+
+.ranking-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.ranking-detail {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.ranking-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 2px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.ranking-link:hover {
+  color: var(--white);
+  border-color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .rankings-grid { grid-template-columns: 1fr; }
+}
+
 /* === PROJECTS === */
 .projects-grid {
   display: grid;
@@ -697,6 +842,7 @@ footer a:hover { color: var(--white); }
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#rankings">Rankings</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -912,10 +1058,76 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
+<!-- RANKINGS -->
+<section id="rankings">
+  <div class="section-header fade-up">
+    <div class="section-label">03 — Rankings</div>
+    <h2 class="section-title">Where I stand</h2>
+  </div>
+  <div class="rankings-grid">
+    <!-- TryHackMe -->
+    <div class="ranking-card fade-up">
+      <div class="ranking-header">
+        <div class="ranking-badge">THM</div>
+        <div>
+          <div class="ranking-title">TryHackMe</div>
+          <div class="ranking-subtitle">Achievements</div>
+        </div>
+      </div>
+      <ul class="ranking-list">
+        <li>
+          <span class="ranking-position gold">#2</span>
+          <div class="ranking-info">
+            <div class="ranking-name">Worldwide</div>
+            <div class="ranking-detail">Top 2 Global — 2025</div>
+          </div>
+          <a href="https://tryhackme.com/p/0xLain" class="ranking-link" target="_blank">Profile →</a>
+        </li>
+        <li>
+          <span class="ranking-position silver">#4</span>
+          <div class="ranking-info">
+            <div class="ranking-name">King of the Hill — France</div>
+            <div class="ranking-detail">Top 4 French — 2025</div>
+          </div>
+          <a href="https://tryhackme.com/p/0xLain" class="ranking-link" target="_blank">KotH →</a>
+        </li>
+        <li>
+          <span class="ranking-position bronze">#1000</span>
+          <div class="ranking-info">
+            <div class="ranking-name">World</div>
+            <div class="ranking-detail">Top 1000 Global — 2019</div>
+          </div>
+          <a href="https://tryhackme.com/p/0xLain" class="ranking-link" target="_blank">Profile →</a>
+        </li>
+      </ul>
+    </div>
+    <!-- HackTheBox -->
+    <div class="ranking-card fade-up">
+      <div class="ranking-header">
+        <div class="ranking-badge">HTB</div>
+        <div>
+          <div class="ranking-title">HackTheBox</div>
+          <div class="ranking-subtitle">Achievement</div>
+        </div>
+      </div>
+      <ul class="ranking-list">
+        <li>
+          <span class="ranking-position gold">#3</span>
+          <div class="ranking-info">
+            <div class="ranking-name">University Worldwide</div>
+            <div class="ranking-detail">Top 3 Academic Global — 2023</div>
+          </div>
+          <a href="https://hackthebox.com" class="ranking-link" target="_blank">Profile →</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header fade-up">
-    <div class="section-label">03 — Projects</div>
+    <div class="section-label">04 — Projects</div>
     <h2 class="section-title">What I've built</h2>
   </div>
   <div class="projects-grid">
@@ -1004,7 +1216,7 @@ footer a:hover { color: var(--white); }
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header fade-up">
-    <div class="section-label">04 — Contact</div>
+    <div class="section-label">05 — Contact</div>
     <h2 class="section-title">Let's connect</h2>
   </div>
   <div class="contact-inner">
